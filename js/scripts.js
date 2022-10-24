@@ -5,7 +5,7 @@ function getComputerChoice(choices) {
   return choices[randomPick];
 }
 
-// jeg er paa steg 4
+// jeg er paa steg 4/switch statement implement
 
 function playRound(playerSelection, computerSelection) {
   let capital = playerSelection.toUpperCase();
