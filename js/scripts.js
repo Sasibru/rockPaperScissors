@@ -5,11 +5,34 @@ function getComputerChoice(choices) {
   return choices[randomPick];
 }
 
-// jeg er paa steg 4/switch statement implement
 
 function playRound(playerSelection, computerSelection) {
-  let capital = playerSelection.toUpperCase();
+  let capitalPlayerSelection = playerSelection.toUpperCase();
+  console.log("Computer Output: ", computerSelection);
+
+  if (capitalPlayerSelection === computerSelection) {
+    console.log("Draw! Try again");
+  } else if (capitalPlayerSelection === "ROCK") {
+    if(computerSelection === "PAPER") {
+      console.log("Computer wins!");
+    } else {
+      console.log("You win!");
+    }
+  } else if (capitalPlayerSelection === "SCISSORS") {
+    if(computerSelection === "ROCK") {
+      console.log("Computer wins!");
+    } else {
+      console.log("You win!");
+    }
+  } else if (capitalPlayerSelection === "PAPER") {
+    if(computerSelection === "SCISSORS") {
+      console.log("Computer wins!");
+    } else {
+      console.log("You win!");
+    }
+  }
 }
 
 const playerSelection = "rock";
 const computerSelection = getComputerChoice(choices);
+console.log(playRound(playerSelection, computerSelection));
