@@ -36,14 +36,15 @@ let result = "";
   return result;
 }
 // Auto play 5 rounds
-let finalScore = "";
+
+let autoPlay = "";
 
 function game() {
   for (let i = 0; i < 5; i++) {
-    playRound(playerSelection, computerSelection);
+    console.log(playRound(playerSelection, computerSelection));
   }
-  return finalScore;
+  return autoPlay
 }
 
 console.log(playRound(playerSelection, computerSelection));
-console.log(game(finalScore));
+console.log(game());
