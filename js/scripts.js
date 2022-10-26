@@ -6,42 +6,44 @@ function getComputerChoice(choices) {
   let randomPick = Math.floor(Math.random() * choices.length);
   return choices[randomPick];
 }
-
+let result = "";
 
 // Game logic
-
-function playRound(playerSelection, computerSelection) {
+  function playRound(playerSelection, computerSelection) {
   let capitalPlayerSelection = playerSelection.toUpperCase();
-  console.log("Computer Output: ", computerSelection);
 
   if (capitalPlayerSelection === computerSelection) {
-    console.log("Draw! Try again");
+    result = "Draw! Try again";
   } else if (capitalPlayerSelection === "ROCK") {
     if(computerSelection === "PAPER") {
-      console.log(`${computerSelection} beats ${capitalPlayerSelection}. Computer wins!`);
+      result = `${computerSelection} beats ${capitalPlayerSelection}. Computer wins!`;
     } else {
-      console.log(`${computerSelection} beats ${capitalPlayerSelection}. You win!`);
+      result = `${computerSelection} beats ${capitalPlayerSelection}. You win!`;
     }
   } else if (capitalPlayerSelection === "SCISSORS") {
     if(computerSelection === "ROCK") {
-      console.log(`${computerSelection} beats ${capitalPlayerSelection}. Computer wins!`);
+      result = `${computerSelection} beats ${capitalPlayerSelection}. Computer wins!`;
     } else {
-      console.log(`${computerSelection} beats ${capitalPlayerSelection}. You win!`);
+      result = `${computerSelection} beats ${capitalPlayerSelection}. You win!`;
     }
   } else if (capitalPlayerSelection === "PAPER") {
     if(computerSelection === "SCISSORS") {
-      console.log(`${computerSelection} beats ${capitalPlayerSelection}. Computer wins!`);
+      result = `${computerSelection} beats ${capitalPlayerSelection}. Computer wins!`;
     } else {
-      console.log(`${computerSelection} beats ${capitalPlayerSelection}. You win!`);
+      result = `${computerSelection} beats ${capitalPlayerSelection}. You win!`;
     }
   }
+  return result;
 }
-
 // Auto play 5 rounds
-function game(playRound) {
+let finalScore = "";
+
+function game() {
   for (let i = 0; i < 5; i++) {
-    console.log(playRound(playerSelection, computerSelection));
+    playRound(playerSelection, computerSelection);
   }
+  return finalScore;
 }
 
 console.log(playRound(playerSelection, computerSelection));
+console.log(game(finalScore));
