@@ -44,12 +44,10 @@ let autoPlay = '';
 
 function game() {
   for (let i = 0; i < 5; i++) {
-    autoPlay = playRound(playerSelection, computerSelection) + i;
+    console.log(playRound(playerSelection, computerSelection));
   }
   return autoPlay
 }
 
-// console.log(playRound(playerSelection, computerSelection));
+console.log(playRound(playerSelection, computerSelection));
 console.log(game());
-
-//Think about when your variables are being assigned values
