@@ -1,8 +1,9 @@
 const choices = ["ROCK", "PAPER", "SCISSORS"];
-const playerSelection = "rock";
+const playerSelection = prompt("Rock, Paper or Scissors?");
 const computerSelection = getComputerChoice(choices);
 let capitalPlayerSelection = "";
 let result = "";
+capitalPlayerSelection = playerSelection.toUpperCase();
 
 
 function getComputerChoice(choices) {
@@ -12,7 +13,6 @@ function getComputerChoice(choices) {
 
 // Game logic
 function playRound(playerSelection, computerSelection) {
-  capitalPlayerSelection = playerSelection.toUpperCase();
   
   if (capitalPlayerSelection === computerSelection) {
     result = "Draw! Try again";
