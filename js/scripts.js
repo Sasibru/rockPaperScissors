@@ -4,6 +4,8 @@ const computerSelection = getComputerChoice(choices);
 let capitalPlayerSelection = "";
 let result = "";
 capitalPlayerSelection = playerSelection.toUpperCase();
+let autoPlay = '';
+let autoGenerateSelection = "";
 
 
 function getComputerChoice(choices) {
@@ -40,8 +42,6 @@ function playRound(playerSelection, computerSelection) {
 
 // Auto play 5 rounds
 
-let autoPlay = '';
-let autoGenerateSelection = "";
 
 function game() {
   for (let i = 0; i < 5; i++) {
