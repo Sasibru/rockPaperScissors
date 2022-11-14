@@ -1,12 +1,10 @@
 const choices = ["ROCK", "PAPER", "SCISSORS"];
-const playerSelection = prompt("Rock, Paper or Scissors?");
+const playerSelection = "paper";
 const computerSelection = getComputerChoice(choices);
-let capitalPlayerSelection = "";
-let result = "";
-capitalPlayerSelection = playerSelection.toUpperCase();
+let capitalPlayerSelection = playerSelection.toUpperCase();
+let result= "";
 let autoPlay = '';
 let autoGenerateSelection = "";
-
 
 function getComputerChoice(choices) {
   let randomPick = Math.floor(Math.random() * choices.length);
@@ -14,35 +12,34 @@ function getComputerChoice(choices) {
 }
 
 // Game logic
-function playRound(playerSelection, computerSelection) {
-  
+function playRound(capitalPlayerSelection, computerSelection) {
   if (capitalPlayerSelection === computerSelection) {
     result = "Draw! Try again";
   } else if (capitalPlayerSelection === "ROCK") {
     if(computerSelection === "PAPER") {
       result = `${computerSelection} beats ${capitalPlayerSelection}. Computer wins!`;
     } else {
-      result = `${computerSelection} beats ${capitalPlayerSelection}. You win!`;
+      result = `${capitalPlayerSelection} beats ${computerSelection}. You win!`;
     }
   } else if (capitalPlayerSelection === "SCISSORS") {
     if(computerSelection === "ROCK") {
       result = `${computerSelection} beats ${capitalPlayerSelection}. Computer wins!`;
     } else {
-      result = `${computerSelection} beats ${capitalPlayerSelection}. You win!`;
+      result = `${capitalPlayerSelection} beats ${computerSelection}. You win!`;
     }
   } else if (capitalPlayerSelection === "PAPER") {
     if(computerSelection === "SCISSORS") {
       result = `${computerSelection} beats ${capitalPlayerSelection}. Computer wins!`;
     } else {
-      result = `${computerSelection} beats ${capitalPlayerSelection}. You win!`;
+      result = `${capitalPlayerSelection} beats ${computerSelection}. You win!`;
     }
   }
   return result;
 }
 
+
+/*
 // Auto play 5 rounds
-
-
 function game() {
   for (let i = 0; i < 5; i++) {
     autoGenerateSelection = getComputerChoice(choices);
@@ -52,4 +49,5 @@ function game() {
 }
 
 // console.log(playRound(playerSelection, computerSelection));
-console.log(game());
+// console.log(game());
+*/
