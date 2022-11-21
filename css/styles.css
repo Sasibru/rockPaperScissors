@@ -1,11 +1,41 @@
 body {
   color: wheat;
   background-color: rgb(19, 18, 18);
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
-.uVsComp {
-  font-size: 62px;
+#main {
+  min-height: 100%;
+  position: relative;
+}
+
+.header {
+  background-color: rgb(38, 36, 36);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.headerTitle {
+  font-size: 5em;
+}
+
+.uVsComp {
+  font-size: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(38, 36, 36);
 }
