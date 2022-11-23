@@ -20,7 +20,7 @@ body {
 }
 
 .headerTitle {
-  font-size: 5em;
+  font-size: 3em;
 }
 
 ul {
@@ -42,7 +42,7 @@ img {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 8em;
+  margin-top: 10em;
 }
 
 .scoreSection {
@@ -50,29 +50,19 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(38, 36, 36);
-  border-radius: 100em;
-  margin-top: 8em;
-  margin-left: 20em;
-  margin-right: 20em;
-
+  flex-grow: 1;
+  margin-top: 12em;
 }
 
-.uVsComp {
-  font-size: 4em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 8px;
-  margin-top: 24px;
 
+.userSection {
+  display: flex;
+  font-size: 30px;
 }
 
-.score {
+.computerSection {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 3em;
+  font-size: 30px;
 }
 
 .footer {
