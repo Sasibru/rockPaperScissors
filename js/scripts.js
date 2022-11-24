@@ -1,12 +1,19 @@
 const choices = ["ROCK", "PAPER", "SCISSORS"];
 const playerSelection = "paper";
 const computerSelection = getComputerChoice(choices);
-
+const rockSelection = document.getElementById("rockSelection").addEventListener("click", playRound);
+const paperSelection = document.getElementById("paperSelection").addEventListener("click",playRound);
+const scissorsSelection = document.getElementById("scissorsSelection").addEventListener("click",playRound);
 let capitalPlayerSelection = playerSelection.toUpperCase();
 let result= "";
 let autoPlay = '';
 let autoGenerateSelection = "";
 
+
+
+function testFunc() {
+  console.log("test");
+}
 
 function getComputerChoice(choices) {
   let randomPick = Math.floor(Math.random() * choices.length);
