@@ -1,15 +1,18 @@
 const choices = ["ROCK", "PAPER", "SCISSORS"];
 const playerSelection = "paper";
 const computerSelection = getComputerChoice(choices);
+
 let capitalPlayerSelection = playerSelection.toUpperCase();
 let result= "";
 let autoPlay = '';
 let autoGenerateSelection = "";
 
+
 function getComputerChoice(choices) {
   let randomPick = Math.floor(Math.random() * choices.length);
   return choices[randomPick];
 }
+
 
 // Game logic
 function playRound(capitalPlayerSelection, computerSelection) {

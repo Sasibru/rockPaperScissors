@@ -33,10 +33,11 @@ li {
   padding: 2em;
 }
 
-img {
+input {
   width: 14em;
   height: 14em;
 }
+
 
 .imageSection {
   display: flex;
@@ -76,3 +77,4 @@ img {
   align-items: center;
   background-color: rgb(38, 36, 36);
 }
+
