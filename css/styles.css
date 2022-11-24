@@ -42,7 +42,7 @@ img {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 10em;
+  margin-top: 8em;
 }
 
 .scoreSection {
@@ -51,7 +51,8 @@ img {
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  margin-top: 12em;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 
