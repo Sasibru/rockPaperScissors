@@ -1,19 +1,17 @@
 const choices = ["ROCK", "PAPER", "SCISSORS"];
 const playerSelection = "paper";
 const computerSelection = getComputerChoice(choices);
-const rockSelection = document.getElementById("rockSelection").addEventListener("click", playRound);
-const paperSelection = document.getElementById("paperSelection").addEventListener("click",playRound);
-const scissorsSelection = document.getElementById("scissorsSelection").addEventListener("click",playRound);
+const rockSelection = document.getElementById("rockSelection").addEventListener("click", testFunc);
+const paperSelection = document.getElementById("paperSelection").addEventListener("click", testFunc);
+const scissorsSelection = document.getElementById("scissorsSelection").addEventListener("click", testFunc);
+const userScore = document.getElementById("userScore");
+const computerScore = document.getElementById("computerScore");
 let capitalPlayerSelection = playerSelection.toUpperCase();
 let result= "";
 let autoPlay = '';
 let autoGenerateSelection = "";
 
 
-
-function testFunc() {
-  console.log("test");
-}
 
 function getComputerChoice(choices) {
   let randomPick = Math.floor(Math.random() * choices.length);
@@ -47,6 +45,10 @@ function playRound(capitalPlayerSelection, computerSelection) {
   return result;
 }
 
+
+function testFunc() {
+   console.log(playRound("ROCK", getComputerChoice(choices)));
+}
 
 /*
 // Auto play 5 rounds

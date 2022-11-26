@@ -78,3 +78,10 @@ input {
   background-color: rgb(38, 36, 36);
 }
 
+.leader {
+  color: green;
+}
+
+.looser {
+  color: red;
+}
