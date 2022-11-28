@@ -1,16 +1,16 @@
 const choices = ["ROCK", "PAPER", "SCISSORS"];
 const playerSelection = "paper";
 const computerSelection = getComputerChoice(choices);
-const rockSelection = document.getElementById("rockSelection").addEventListener("click", testFunc);
-const paperSelection = document.getElementById("paperSelection").addEventListener("click", testFunc);
-const scissorsSelection = document.getElementById("scissorsSelection").addEventListener("click", testFunc);
+const rockSelection = document.getElementById("rockSelection").addEventListener("click", playGame);
+const paperSelection = document.getElementById("paperSelection").addEventListener("click", playGame);
+const scissorsSelection = document.getElementById("scissorsSelection").addEventListener("click", playGame);
 const userScore = document.getElementById("userScore");
 const computerScore = document.getElementById("computerScore");
 let capitalPlayerSelection = playerSelection.toUpperCase();
 let result= "";
 let autoPlay = '';
 let autoGenerateSelection = "";
-
+const resetScore = 0;
 
 
 function getComputerChoice(choices) {
@@ -21,6 +21,7 @@ function getComputerChoice(choices) {
 
 // Game logic
 function playRound(capitalPlayerSelection, computerSelection) {
+
   if (capitalPlayerSelection === computerSelection) {
     result = "Draw! Try again";
   } else if (capitalPlayerSelection === "ROCK") {
@@ -46,9 +47,10 @@ function playRound(capitalPlayerSelection, computerSelection) {
 }
 
 
-function testFunc() {
-   console.log(playRound("ROCK", getComputerChoice(choices)));
+function playGame() {
+   console.log(playRound(this.value, getComputerChoice(choices)));
 }
+
 
 /*
 // Auto play 5 rounds
