@@ -4,13 +4,16 @@ const computerSelection = getComputerChoice(choices);
 const rockSelection = document.getElementById("rockSelection").addEventListener("click", playGame);
 const paperSelection = document.getElementById("paperSelection").addEventListener("click", playGame);
 const scissorsSelection = document.getElementById("scissorsSelection").addEventListener("click", playGame);
-const userScore = document.getElementById("userScore");
-const computerScore = document.getElementById("computerScore");
+const userScoreDom = document.getElementById("userScore");
+const computerScoreDom = document.getElementById("computerScore");
+const gameLogDom = document.getElementById("gameLogDom");
 let capitalPlayerSelection = playerSelection.toUpperCase();
-let result= "";
+let gameLog = "";
 let autoPlay = '';
 let autoGenerateSelection = "";
 const resetScore = 0;
+let userScore = 0;
+let computerScore = 0;
 
 
 function getComputerChoice(choices) {
@@ -20,38 +23,69 @@ function getComputerChoice(choices) {
 
 
 // Game logic
-function playRound(capitalPlayerSelection, computerSelection) {
 
+function playRound(capitalPlayerSelection, computerSelection) {
   if (capitalPlayerSelection === computerSelection) {
-    result = "Draw! Try again";
-  } else if (capitalPlayerSelection === "ROCK") {
-    if(computerSelection === "PAPER") {
-      result = `${computerSelection} beats ${capitalPlayerSelection}. Computer wins!`;
-    } else {
-      result = `${capitalPlayerSelection} beats ${computerSelection}. You win!`;
+    gameLog = `Draw!`;
+    document.getElementById("gameLogDom").innerHTML = gameLog;
+  } else if(
+    (capitalPlayerSelection === 'ROCK' && computerSelection === 'SCISSORS') ||
+    (capitalPlayerSelection === 'SCISSORS' && computerSelection === 'PAPER') ||
+    (capitalPlayerSelection === 'PAPER' && computerSelection === 'ROCK')) {
+      userScore++
+     gameLog = `${capitalPlayerSelection} beats ${computerSelection}. You win!`;
+     document.getElementById("userScore").innerHTML = userScore;
+     document.getElementById("gameLogDom").innerHTML = gameLog;
+  } else if (
+    (computerSelection === 'ROCK' && capitalPlayerSelection === 'SCISSORS') ||
+    (computerSelection === 'SCISSORS' && capitalPlayerSelection === 'PAPER') ||
+    (computerSelection === 'PAPER' && capitalPlayerSelection === 'ROCK')) {
+      computerScore++
+     gameLog = `${computerSelection} beats ${capitalPlayerSelection}. Computer wins!`;
+     document.getElementById("computerScore").innerHTML = computerScore;
+     document.getElementById("gameLogDom").innerHTML = gameLog;
     }
-  } else if (capitalPlayerSelection === "SCISSORS") {
-    if(computerSelection === "ROCK") {
-      result = `${computerSelection} beats ${capitalPlayerSelection}. Computer wins!`;
-    } else {
-      result = `${capitalPlayerSelection} beats ${computerSelection}. You win!`;
-    }
-  } else if (capitalPlayerSelection === "PAPER") {
-    if(computerSelection === "SCISSORS") {
-      result = `${computerSelection} beats ${capitalPlayerSelection}. Computer wins!`;
-    } else {
-      result = `${capitalPlayerSelection} beats ${computerSelection}. You win!`;
-    }
-  }
-  return result;
-}
+    return gameLog;
+  };
 
 
 function playGame() {
+  if(userScore === 5 || computerScore === 5){
+    resetGame();
+    console.log("testworked")
+  }
    console.log(playRound(this.value, getComputerChoice(choices)));
+  };
+
+
+  // Add/Remove classes from dom
+  /*
+  if (userScore === computerScore) {
+    userScoreDom.classList.remove("looser");
+    userScoreDom.classList.remove("leader");
+    computerScoreDom.classList.remove("leader");
+    computerScoreDom.classList.remove("looser");
+  }else if(userScore > computerScore) {
+      userScoreDom.classList.remove("looser");
+      userScoreDom.classList.add("leader");
+      computerScoreDom.classList.remove("leader");
+      computerScoreDom.classList.add("looser");
+    } else if (userScore < computerScore){
+      computerScoreDom.classList.add("leader");
+      computerScoreDom.classList.remove("looser");
+      userScoreDom.classList.remove("leader");
+      userScoreDom.classList.add("looser");
+    };
+    */
+
+
+function resetGame() {
+  userScore = 0;
+  computerScore = 0;
+  document.getElementById("userScore").innerHTML = userScore;
+  document.getElementById("computerScore").innerHTML = computerScore;
+
 }
-
-
 /*
 // Auto play 5 rounds
 function game() {
