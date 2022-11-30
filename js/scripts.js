@@ -14,6 +14,8 @@ let autoGenerateSelection = "";
 const resetScore = 0;
 let userScore = 0;
 let computerScore = 0;
+let btn = document.createElement("button");
+btn.innerHTML = "Play again!";
 
 
 function getComputerChoice(choices) {
@@ -25,6 +27,7 @@ function getComputerChoice(choices) {
 // Game logic
 
 function playRound(capitalPlayerSelection, computerSelection) {
+
   if (capitalPlayerSelection === computerSelection) {
     gameLog = `Draw!`;
     document.getElementById("gameLogDom").innerHTML = gameLog;
@@ -45,21 +48,55 @@ function playRound(capitalPlayerSelection, computerSelection) {
      document.getElementById("computerScore").innerHTML = computerScore;
      document.getElementById("gameLogDom").innerHTML = gameLog;
     }
+
+    if(userScore === 5){
+      document.getElementById("gameLogDom").innerHTML = "You won the game!"
+      gameLogDom.classList.add("leader");
+    }else if(computerScore === 5) {
+      document.getElementById("gameLogDom").innerHTML = "Computer wins the game!"
+      gameLogDom.classList.add("looser");
+    }
+
+    animations();
+
+
     return gameLog;
   };
 
+function animations() {
+  if (userScore === computerScore) {
+    userScoreDom.classList.remove("looser");
+    userScoreDom.classList.remove("leader");
+    computerScoreDom.classList.remove("leader");
+    computerScoreDom.classList.remove("looser");
+    }else if(userScore > computerScore) {
+      userScoreDom.classList.remove("looser");
+      userScoreDom.classList.add("leader");
+      computerScoreDom.classList.remove("leader");
+      computerScoreDom.classList.add("looser");
+    }else if (userScore < computerScore){
+      computerScoreDom.classList.add("leader");
+      computerScoreDom.classList.remove("looser");
+      userScoreDom.classList.remove("leader");
+      userScoreDom.classList.add("looser");
+    };
+
+}
+
 
 function playGame() {
-  if(userScore === 5 || computerScore === 5){
+  if(userScore === 5){
     resetGame();
-    console.log("testworked")
-  }
-   console.log(playRound(this.value, getComputerChoice(choices)));
+  }else if(computerScore === 5) {
+    resetGame();
+  };
+
+   playRound(this.value, getComputerChoice(choices));
   };
 
 
   // Add/Remove classes from dom
-  /*
+/*
   if (userScore === computerScore) {
     userScoreDom.classList.remove("looser");
     userScoreDom.classList.remove("leader");
@@ -76,14 +113,15 @@ function playGame() {
       userScoreDom.classList.remove("leader");
       userScoreDom.classList.add("looser");
     };
-    */
-
+*/
 
 function resetGame() {
   userScore = 0;
   computerScore = 0;
-  document.getElementById("userScore").innerHTML = userScore;
-  document.getElementById("computerScore").innerHTML = computerScore;
+  document.getElementById("userScore").innerHTML = 0;
+  document.getElementById("computerScore").innerHTML = 0;
+  gameLogDom.classList.remove("leader");
+  gameLogDom.classList.remove("looser");
 
 }
 /*
