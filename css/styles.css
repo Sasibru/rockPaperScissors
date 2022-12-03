@@ -94,3 +94,7 @@ input {
 .looser {
   color: red;
 }
+
+.imageClicked {
+  transform: scale(1.1);
+}

@@ -14,8 +14,6 @@ let autoGenerateSelection = "";
 const resetScore = 0;
 let userScore = 0;
 let computerScore = 0;
-let btn = document.createElement("button");
-btn.innerHTML = "Play again!";
 
 
 function getComputerChoice(choices) {
@@ -85,6 +83,7 @@ function animations() {
 
 
 function playGame() {
+
   if(userScore === 5){
     resetGame();
   }else if(computerScore === 5) {
@@ -92,6 +91,7 @@ function playGame() {
   };
 
    playRound(this.value, getComputerChoice(choices));
+
   };
 
 
