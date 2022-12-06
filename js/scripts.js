@@ -1,12 +1,16 @@
 const choices = ["ROCK", "PAPER", "SCISSORS"];
 const playerSelection = "paper";
 const computerSelection = getComputerChoice(choices);
-const rockSelection = document.getElementById("rockSelection").addEventListener("click", playGame);
-const paperSelection = document.getElementById("paperSelection").addEventListener("click", playGame);
-const scissorsSelection = document.getElementById("scissorsSelection").addEventListener("click", playGame);
+const rockSelection = document.getElementById("rockSelection");
+rockSelection.addEventListener("click", playGame);
+const paperSelection = document.getElementById("paperSelection");
+paperSelection.addEventListener("click", playGame);
+const scissorsSelection = document.getElementById("scissorsSelection");
+scissorsSelection.addEventListener("click", playGame);
 const userScoreDom = document.getElementById("userScore");
 const computerScoreDom = document.getElementById("computerScore");
 const gameLogDom = document.getElementById("gameLogDom");
+const imageSection = document.getElementById("imageSection");
 let capitalPlayerSelection = playerSelection.toUpperCase();
 let gameLog = "";
 let autoPlay = '';
@@ -62,6 +66,7 @@ function playRound(capitalPlayerSelection, computerSelection) {
   };
 
 function animations() {
+
   if (userScore === computerScore) {
     userScoreDom.classList.remove("looser");
     userScoreDom.classList.remove("leader");

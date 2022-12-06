@@ -48,7 +48,8 @@ input {
 }
 
 
-.imageSection {
+
+#imageSection {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -97,4 +98,5 @@ input {
 
 .imageClicked {
   transform: scale(1.1);
+  opacity: 50%;
 }
