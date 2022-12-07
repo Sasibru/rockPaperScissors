@@ -1,3 +1,5 @@
+"use strict"
+
 const choices = ["ROCK", "PAPER", "SCISSORS"];
 const playerSelection = "paper";
 const computerSelection = getComputerChoice(choices);
@@ -52,10 +54,10 @@ function playRound(capitalPlayerSelection, computerSelection) {
     }
 
     if(userScore === 5){
-      document.getElementById("gameLogDom").innerHTML = "You won the game!"
+      document.getElementById("gameLogDom").innerHTML = "You won the game! Click to play another round"
       gameLogDom.classList.add("leader");
     }else if(computerScore === 5) {
-      document.getElementById("gameLogDom").innerHTML = "Computer wins the game!"
+      document.getElementById("gameLogDom").innerHTML = "Computer wins the game! Click to play another round"
       gameLogDom.classList.add("looser");
     }
 
@@ -96,29 +98,16 @@ function playGame() {
   };
 
    playRound(this.value, getComputerChoice(choices));
+   if(this.value === "ROCK") {
+    rockSelection.classList.add("imageClicked");
+   } else if (this.value === "PAPER") {
+    paperSelection.classList.add("imageClicked");
+   } else if(this.value === "SCISSORS") {
+    scissorsSelection.classList.add("imageClicked");
+   };
 
   };
 
-
-  // Add/Remove classes from dom
-/*
-  if (userScore === computerScore) {
-    userScoreDom.classList.remove("looser");
-    userScoreDom.classList.remove("leader");
-    computerScoreDom.classList.remove("leader");
-    computerScoreDom.classList.remove("looser");
-  }else if(userScore > computerScore) {
-      userScoreDom.classList.remove("looser");
-      userScoreDom.classList.add("leader");
-      computerScoreDom.classList.remove("leader");
-      computerScoreDom.classList.add("looser");
-    } else if (userScore < computerScore){
-      computerScoreDom.classList.add("leader");
-      computerScoreDom.classList.remove("looser");
-      userScoreDom.classList.remove("leader");
-      userScoreDom.classList.add("looser");
-    };
-*/
 
 function resetGame() {
   userScore = 0;
