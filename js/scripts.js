@@ -63,9 +63,43 @@ function playRound(capitalPlayerSelection, computerSelection) {
 
     animations();
 
-
     return gameLog;
   };
+
+  function playGame() {
+
+    if(userScore === 5){
+      resetGame();
+    }else if(computerScore === 5) {
+      resetGame();
+    };
+  
+     playRound(this.value, getComputerChoice(choices));
+     if(this.value === "ROCK") {
+      rockSelection.classList.add("imageClicked");
+     } else if (this.value === "PAPER") {
+      paperSelection.classList.add("imageClicked");
+     } else if(this.value === "SCISSORS") {
+      scissorsSelection.classList.add("imageClicked");
+     };
+  
+    };
+
+function resetButtons() {
+  rockSelection.classList.remove("imageClicked");
+  paperSelection.classList.remove("imageClicked");
+  scissorsSelection.classList.remove("imageClicked");
+}
+
+
+function resetGame() {
+  userScore = 0;
+  computerScore = 0;
+  document.getElementById("userScore").innerHTML = 0;
+  document.getElementById("computerScore").innerHTML = 0;
+  gameLogDom.classList.remove("leader");
+  gameLogDom.classList.remove("looser");
+};
 
 function animations() {
 
@@ -89,35 +123,6 @@ function animations() {
 }
 
 
-function playGame() {
-
-  if(userScore === 5){
-    resetGame();
-  }else if(computerScore === 5) {
-    resetGame();
-  };
-
-   playRound(this.value, getComputerChoice(choices));
-   if(this.value === "ROCK") {
-    rockSelection.classList.add("imageClicked");
-   } else if (this.value === "PAPER") {
-    paperSelection.classList.add("imageClicked");
-   } else if(this.value === "SCISSORS") {
-    scissorsSelection.classList.add("imageClicked");
-   };
-
-  };
-
-
-function resetGame() {
-  userScore = 0;
-  computerScore = 0;
-  document.getElementById("userScore").innerHTML = 0;
-  document.getElementById("computerScore").innerHTML = 0;
-  gameLogDom.classList.remove("leader");
-  gameLogDom.classList.remove("looser");
-
-}
 /*
 // Auto play 5 rounds
 function game() {
