@@ -54,10 +54,10 @@ function playRound(capitalPlayerSelection, computerSelection) {
     }
 
     if(userScore === 5){
-      document.getElementById("gameLogDom").innerHTML = "You won the game! Click to play another round"
+      document.getElementById("gameLogDom").innerHTML = "You won the game! Click to play again"
       gameLogDom.classList.add("leader");
     }else if(computerScore === 5) {
-      document.getElementById("gameLogDom").innerHTML = "Computer wins the game! Click to play another round"
+      document.getElementById("gameLogDom").innerHTML = "Computer wins the game! Click to play again"
       gameLogDom.classList.add("looser");
     }
 
@@ -85,11 +85,6 @@ function playRound(capitalPlayerSelection, computerSelection) {
   
     };
 
-function resetButtons() {
-  rockSelection.classList.remove("imageClicked");
-  paperSelection.classList.remove("imageClicked");
-  scissorsSelection.classList.remove("imageClicked");
-}
 
 
 function resetGame() {
@@ -119,8 +114,13 @@ function animations() {
       userScoreDom.classList.remove("leader");
       userScoreDom.classList.add("looser");
     };
+    setTimeout(() => {
+      rockSelection.classList.remove("imageClicked");
+      paperSelection.classList.remove("imageClicked");
+      scissorsSelection.classList.remove("imageClicked");
+    }, "100");
 
-}
+};
 
 
 /*

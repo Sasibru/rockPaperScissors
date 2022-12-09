@@ -97,6 +97,6 @@ input {
 }
 
 .imageClicked {
-  transition: 0.05s;
+  transition: 0.06s;
   opacity: 50%;
 }
